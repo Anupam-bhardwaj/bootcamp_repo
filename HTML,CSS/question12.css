@@ -1,0 +1,112 @@
+.nav{
+	display: flex;
+	justify-content: space-between;
+	padding: 2%;
+	color: #40e0d0;
+}
+
+.nav_item{
+	padding-left: 8px;
+	display: inline-block;
+}
+
+.formCard{
+	padding: 0px;
+	width: 380px;
+	border-style: solid;
+	border-color: #d9d9d9;
+	border-width: 2px;
+	border-radius: 5px
+}
+
+.formCard div{
+	text-align: left;
+	padding: 2% 5%;
+	background: #d9d9d9;
+	color: #ffffff;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: sans-serif
+}
+
+.formMain{
+	text-align: left;
+	padding: 0% 5%;
+}
+
+.formMain p{
+
+		font-size: 18px;
+		padding-bottom: 0px;
+		margin-bottom: 0%;
+		font-family:sans-serif;
+}
+
+.formMain input, textarea, select{
+	position: relative;
+	margin: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	border-width: 2px;
+	border-color: #d9d9d9;
+	width: 100%
+}
+
+
+.formList{
+	margin: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	border-width: 2px;
+	border-color: #d9d9d9;
+	width: 100%
+	color:#fff;
+	background: #40e0d0;
+	padding: 2%}
+
+.formList option{
+	margin: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	border-width: 2px;
+	border-color: #d9d9d9;
+	width: 100%
+	color:#fff;
+	background: #40e0d0;
+	padding: 2%;
+}
+
+input[type="radio"]{
+      display: none;
+}
+input[type="radio"] + label span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    vertical-align: middle;
+    border: 2px solid #d9d9d9;
+    border-radius: 50%;
+    padding: 2px;
+    margin:0 0px;
+    text-align: justify;
+}
+input[type="radio"]:checked + label span {
+    width: 10px;
+    height: 10px;
+    background: #d9d9d9;
+    background-clip: content-box;
+    text-align: justify;
+}  
+
+
+input[type="Submit"]{
+	margin-left: 82%;
+	padding: 5px;
+	width: 20%;
+	background-color: #40e0d0;
+	color: #fff;
+	border-style: solid; 
+	border-radius:5px; 
+	border-width: 0px
+}

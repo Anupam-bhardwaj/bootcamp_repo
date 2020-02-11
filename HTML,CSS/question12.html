@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question 12</title>
+	<link rel="stylesheet" type="text/css" href="question12.css">
+</head>
+<body>
+	<div class="nav">
+		<div class="nav_title"><h1>To the New</h1></div>
+		<div class="nav_list">
+		<ul>
+			<li class="nav_item">Home</li>
+			<li class="nav_item">Quick help</li>
+		</ul>
+		</div>
+	</div>
+	<hr width="96%" style="margin-top: -25px">
+	<center>
+	<div class="formCard">
+		<div>Bug Report</div>
+		<form method="post" action="index.html" class="formMain">
+			<p>Title:*</p>
+			<input type="text" name="Title">
+			<p>Description:*</p>
+			<textarea></textarea>
+			<p>Operating System:</p>
+			<select class="formList" style="color: white; padding: 2%; border-width: 0px">
+				<option>WindowsXP</option>
+				<option>Windows7</option>
+				<option>Linux</option>
+				<option>MacOS</option>
+			</select>
+
+			<p>Product:*</p>
+			<select class="formList" style="color: white; padding: 2%; border-width: 0px">
+				<option>Formoid</option>
+				<option>Formoid1</option>
+				<option>Formoid2</option>
+				<option>Formoid3</option>
+			</select>
+
+			<p>Version:*</p>
+			<input type="text" name="version" style="width: 25%; height: 25px">
+
+			<p>License</p>
+			<input id="free" type="radio" name="free" value="free">
+			<label for="free"><span></span>   Free</label>
+
+		    <input id="business" type="radio" name="business" value="business" style="margin-left: 50%">
+    		<label for="business" style="margin-left: 50%"><span></span>   Business</label>
+
+    		<p>Severity:</p>
+			<select class="formList" style="color: white; padding: 2%; border-width: 0px">
+				<option>Critical</option>
+				<option>Less Critical</option>
+				<option>Highly Critical</option>
+				<option>Not Critical</option>
+			</select>
+
+			<p>Attachment:</p>
+			<input class="formFile" type="file" name="file">
+			
+		</form>
+		<div style="margin-top: 5px; background-color: #d9d9d9;">
+			<a href="index.html" style="text-decoration: none;"><input type="submit" name="Submit" class="btnSubmit"></a>
+		</div>
+	</div>
+	</center>
+</body>
+</html>
