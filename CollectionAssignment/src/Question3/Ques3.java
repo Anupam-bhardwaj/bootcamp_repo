@@ -1,9 +1,9 @@
 package Question3;
 
-import java.nio.charset.Charset;
+//Write a method that takes a string and print the number of occurrence of each character characters in the string.
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class Ques3 {
     public static void main(String[] args) {

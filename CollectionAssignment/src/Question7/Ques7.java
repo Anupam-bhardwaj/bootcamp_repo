@@ -1,5 +1,7 @@
 package Question7;
 
+//Print the elements of an array in the decreasing frequency if 2 numbers have same frequency then print the one which came first.
+
 import java.util.*;
 
 public class Ques7 {

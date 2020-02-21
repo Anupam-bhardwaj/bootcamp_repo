@@ -1,5 +1,7 @@
 package Question6;
 
+//Write a program to sort the Student objects based on Score , if the score are same then sort on First Name.
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

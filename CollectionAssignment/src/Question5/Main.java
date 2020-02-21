@@ -1,5 +1,7 @@
 package Question5;
 
+//Write a program to sort Employee objects based on highest salary using Comparator.
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
