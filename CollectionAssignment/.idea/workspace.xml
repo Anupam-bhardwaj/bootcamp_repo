@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cf41f497-15ab-477f-9fac-bafc4549351a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Y3dR9c6ZXykeIn73ix7LMePgAh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ThreadDemo/src/Question1/App.java" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.Main" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Question6.Main" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Question6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ques1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Question1.Ques1" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Question1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ques2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Question2.Ques2" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Question2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.Test6" />
+      <module name="CollectionAssignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test6" />
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Ques1" />
+        <item itemvalue="Application.Ques2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf41f497-15ab-477f-9fac-bafc4549351a" name="Default Changelist" comment="" />
+      <created>1582175200613</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582175200613</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="278" y="30" width="800" height="677" key="#Project_Structure" timestamp="1582175258517">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="278" y="30" width="800" height="677" key="#Project_Structure/0.27.1366.684@0.27.1366.684" timestamp="1582175258517" />
+    <state x="491" y="81" width="544" height="575" key="#com.intellij.ide.util.MemberChooser" timestamp="1582266740815">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="491" y="81" width="544" height="575" key="#com.intellij.ide.util.MemberChooser/0.27.1366.684@0.27.1366.684" timestamp="1582266740815" />
+    <state x="466" y="127" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582175707472">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="466" y="127" width="424" height="484" key="FileChooserDialogImpl/0.27.1366.684@0.27.1366.684" timestamp="1582175707472" />
+    <state width="1320" height="204" key="GridCell.Tab.0.bottom" timestamp="1582268388739">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state width="1320" height="204" key="GridCell.Tab.0.bottom/0.27.1366.684@0.27.1366.684" timestamp="1582268388739" />
+    <state width="1320" height="204" key="GridCell.Tab.0.center" timestamp="1582268388736">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state width="1320" height="204" key="GridCell.Tab.0.center/0.27.1366.684@0.27.1366.684" timestamp="1582268388736" />
+    <state width="1320" height="204" key="GridCell.Tab.0.left" timestamp="1582268388734">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state width="1320" height="204" key="GridCell.Tab.0.left/0.27.1366.684@0.27.1366.684" timestamp="1582268388734" />
+    <state width="1320" height="204" key="GridCell.Tab.0.right" timestamp="1582268388737">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state width="1320" height="204" key="GridCell.Tab.0.right/0.27.1366.684@0.27.1366.684" timestamp="1582268388737" />
+    <state x="172" y="27" width="1012" height="684" key="SettingsEditor" timestamp="1582175323971">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="172" y="27" width="1012" height="684" key="SettingsEditor/0.27.1366.684@0.27.1366.684" timestamp="1582175323971" />
+    <state x="100" y="125" width="1166" height="486" key="dock-window-1" timestamp="1582260893128">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="100" y="125" width="1166" height="486" key="dock-window-1/0.27.1366.684@0.27.1366.684" timestamp="1582260893128" />
+    <state x="142" y="27" width="1166" height="486" key="dock-window-2" timestamp="1582263021144">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="142" y="27" width="1166" height="486" key="dock-window-2/0.27.1366.684@0.27.1366.684" timestamp="1582263021144" />
+    <state x="100" y="125" width="1166" height="486" key="dock-window-3" timestamp="1582263021144">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="100" y="125" width="1166" height="486" key="dock-window-3/0.27.1366.684@0.27.1366.684" timestamp="1582263021144" />
+    <state x="100" y="125" width="1166" height="486" key="dock-window-4" timestamp="1582263021145">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="100" y="125" width="1166" height="486" key="dock-window-4/0.27.1366.684@0.27.1366.684" timestamp="1582263021145" />
+    <state x="100" y="125" width="1166" height="486" key="dock-window-5" timestamp="1582263021145">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="100" y="125" width="1166" height="486" key="dock-window-5/0.27.1366.684@0.27.1366.684" timestamp="1582263021145" />
+    <state x="100" y="125" width="1166" height="486" key="dock-window-6" timestamp="1582263021145">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="100" y="125" width="1166" height="486" key="dock-window-6/0.27.1366.684@0.27.1366.684" timestamp="1582263021145" />
+    <state x="100" y="125" width="1166" height="486" key="dock-window-7" timestamp="1582263021146">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="100" y="125" width="1166" height="486" key="dock-window-7/0.27.1366.684@0.27.1366.684" timestamp="1582263021146" />
+    <state x="100" y="125" width="1166" height="486" key="dock-window-8" timestamp="1582263021146">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="100" y="125" width="1166" height="486" key="dock-window-8/0.27.1366.684@0.27.1366.684" timestamp="1582263021146" />
+    <state x="100" y="125" width="1166" height="486" key="dock-window-9" timestamp="1582263315886">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="100" y="125" width="1166" height="486" key="dock-window-9/0.27.1366.684@0.27.1366.684" timestamp="1582263315886" />
+    <state x="346" y="32" width="672" height="678" key="search.everywhere.popup" timestamp="1582184223279">
+      <screen x="0" y="27" width="1366" height="684" />
+    </state>
+    <state x="346" y="32" width="672" height="678" key="search.everywhere.popup/0.27.1366.684@0.27.1366.684" timestamp="1582184223279" />
+  </component>
+</project>
