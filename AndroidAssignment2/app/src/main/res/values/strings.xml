@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AndroidAssignment2</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="user_name">User Name</string>
+    <string name="email">Email</string>
+    <string name="main_activity">Main Activity</string>
+    <string name="enter_url">Enter Url</string>
+    <string name="open_link">Open Link</string>
+    <string name="check_permission">Check Permission</string>
+    <string name="signup">Signup</string>
+    <string name="signup_btn">SignUp</string>
+</resources>
