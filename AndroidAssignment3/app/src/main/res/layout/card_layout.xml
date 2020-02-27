@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:elevation="@dimen/cardview_compat_inset_shadow"
+    >
+
+    <ImageView
+        android:id="@+id/cardLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icecream"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:layout_marginLeft="20sp"
+        android:id = "@+id/cardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardLogo"
+        android:textSize="20sp"
+        android:paddingLeft="0sp"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        android:textColor="#000000"
+        android:text="Ice Cream Sundae"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/cardTitle"
+        android:id="@+id/cardSubtitle"
+        android:text="145, Mall Of India"
+        android:paddingTop="0sp"
+        android:paddingBottom="10sp"
+        android:layout_marginLeft="20sp"
+        />
+
+    <RatingBar
+        android:id="@+id/cardRating"
+        style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardSubtitle"
+
+        android:layout_marginLeft="20sp"
+        android:layout_marginBottom="5sp"
+        android:numStars="5"
+        android:outlineAmbientShadowColor="#000"
+        android:rating="3" />
+
+    <TextView
+        android:id="@+id/cardReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="520 reviews"
+        android:layout_toRightOf="@+id/cardRating"
+        android:layout_below="@+id/cardSubtitle"
+        android:layout_marginLeft="30sp"
+        android:layout_marginBottom="5sp"
+        />
+
+
+</RelativeLayout>

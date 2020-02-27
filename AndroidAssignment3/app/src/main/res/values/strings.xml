@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AndroidAssignment3</string>
+    <string name="foodie_app">Foodie App</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="cardtext">Ice Cream Sundae</string>
+    <string name="subtitletext">145, Mall of India</string>
+    <string name="cardTime">01 Mar 2019 11:30 AM</string>
+    <string name="cardPrice">Rs 180</string>
+    <string name="cardSubtitle">145, Mall of India</string>
+    <string name="cardTitle">Ice Cream Sundae</string>
+</resources>
