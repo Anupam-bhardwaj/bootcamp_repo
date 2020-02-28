@@ -1,0 +1,3 @@
+rootProject.name='AndroidAssignment4'
+include ':app'
+include ':NewsView'

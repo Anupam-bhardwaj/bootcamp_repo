@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8sp"
+    android:background="#fff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="@dimen/cardview_default_elevation"
+    app:cardCornerRadius="10sp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/bannerImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/image1"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/bannerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bannerImage"
+            android:background="#fff"
+            android:fontFamily="@font/average_sans"
+            android:padding="10sp"
+            android:paddingBottom="5sp"
+            android:textColor="#535A6C"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bannerDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bannerTitle"
+            android:background="#fff"
+            android:fontFamily="@font/average_sans"
+            android:paddingStart="10sp"
+            android:paddingLeft="10sp"
+            android:paddingTop="5sp"
+            android:paddingEnd="10sp"
+            android:paddingRight="10sp"
+            android:paddingBottom="10sp"
+            android:textColor="#535A6C"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
