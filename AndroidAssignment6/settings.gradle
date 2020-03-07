@@ -1,0 +1,3 @@
+rootProject.name='AndroidAssignment6'
+include ':question1'
+include ':question2'
