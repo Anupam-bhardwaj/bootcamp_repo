@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsertData">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/insertName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/colorAccent"
+            android:gravity="center_horizontal"
+            android:hint="@string/insert_Name"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/insertAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/insertName"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/colorAccent"
+            android:gravity="center_horizontal"
+            android:hint="@string/insert_address"
+            android:inputType="textLongMessage"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/insertPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/insertAddress"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/colorAccent"
+            android:gravity="center_horizontal"
+            android:hint="@string/insert_phone"
+            android:inputType="phone"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/submitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:text="@string/submit"
+            android:layout_below="@id/insertPhone"
+            android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
