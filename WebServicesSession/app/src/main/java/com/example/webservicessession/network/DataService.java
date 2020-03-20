@@ -1,4 +1,6 @@
-package com.example.webservicessession;
+package com.example.webservicessession.network;
+
+import com.example.webservicessession.Model.Data;
 
 import java.util.List;
 
@@ -8,5 +10,5 @@ import retrofit2.http.GET;
 public interface DataService {
 
     @GET("posts.json")
-    Call<List<RetroData>>getAllData();
+    Call<Data>getAllData();
 }

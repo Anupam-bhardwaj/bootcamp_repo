@@ -1,8 +1,12 @@
-package com.example.webservicessession;
+package com.example.webservicessession.Model;
+
+import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
-public class RetroData {
+import java.io.Serializable;
+
+public class RetroData implements Serializable {
 
     @SerializedName("name")
     private String name;
@@ -41,5 +45,16 @@ public class RetroData {
 
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return
+                "PostsItem{" +
+                "name = '" + name + '\'' +
+                ",profileImage = '" + profileImage + '\'' +
+                ",message = '" + message + '\'' +
+                "}";
     }
 }
