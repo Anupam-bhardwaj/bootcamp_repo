@@ -43,8 +43,8 @@ public class CustomAdaptor extends RecyclerView.Adapter<CustomAdaptor.CustomView
         RetroData retroData = dataList.get(position);
         holder.name.setText(retroData.getName());
         holder.msg.setText(retroData.getMessage());
-        Log.d("image", retroData.getProfileImage());
-        Picasso.get().load(retroData.getProfileImage()).into(holder.imageView);
+        String imageUrl = retroData.getProfileImage().replace("http", "https");
+        Picasso.get().load(imageUrl).into(holder.imageView);
 
     }
 
