@@ -4,12 +4,29 @@ package Exercise1
 
 fun main(args: Array<String>){
 
-    val arr1 = intArrayOf(2, 3, 4, 2, 3, 4, 5, 6, 7, 5, 6, 7, 1, 9, 1)
-    var result = arr1[0]
-    for (i in 1 until arr1.size) {
-        result = result xor arr1[i]
+    var string = "heeooyuyu"
+    var duplicate: Int
+//    var occurence = 1
+
+    string = string.toLowerCase()
+    val word = string.split("".toRegex()).toTypedArray()
+
+    duplicate = 1
+    for (i in 0 until word.size) {
+
+        for (j in i+1 until word.size) {
+            if (word[i].equals(word[j])) {
+                duplicate++;
+                word[j] = "0"
+//                occurence += duplicate
+            }
+        }
+        if (duplicate == 1 && word[i] != "0"){
+
+            println(word[i])
+        }
     }
-    println("$result")
-
-
+    if (duplicate != 1){
+        println("No Element without a pair exists.")
+    }
 }
