@@ -1,5 +1,7 @@
 package Exercise3
 
+//WAP to create singleton class.
+
 object Singleton{
 
    init {
@@ -12,7 +14,7 @@ object Singleton{
 
 fun main(args: Array<String>) {
 
-    var a = A()
+    val a = A()
 
 }
 

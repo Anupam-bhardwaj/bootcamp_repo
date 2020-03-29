@@ -11,8 +11,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Interface" />
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -40,15 +40,28 @@
       <recent name="$PROJECT_DIR$/src/Exercise1" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Question4Kt">
-    <configuration name="Question1Kt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Kotlin.Question6Kt">
+    <configuration name="Question1Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="KotlinAssignments" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Exercise3.Question1Kt" />
+      <option name="MAIN_CLASS_NAME" value="Exercise4.Question1Kt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Question2Kt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="KotlinAssignments" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Exercise4.Question2Kt" />
       <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,26 +106,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Question8Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <module name="KotlinAssignments" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Exercise2.Question8Kt" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="Kotlin.Question2Kt" />
+      <item itemvalue="Kotlin.Question4Kt" />
+      <item itemvalue="Kotlin.Question1Kt" />
+      <item itemvalue="Kotlin.Question2Kt (1)" />
+      <item itemvalue="Kotlin.Question6Kt" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.Question4Kt" />
-        <item itemvalue="Kotlin.Question2Kt" />
-        <item itemvalue="Kotlin.Question1Kt (1)" />
-        <item itemvalue="Kotlin.Question8Kt" />
         <item itemvalue="Kotlin.Question6Kt" />
+        <item itemvalue="Kotlin.Question2Kt (1)" />
+        <item itemvalue="Kotlin.Question1Kt" />
+        <item itemvalue="Kotlin.Question2Kt" />
+        <item itemvalue="Kotlin.Question4Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -134,6 +141,10 @@
       <screen x="0" y="27" width="1366" height="694" />
     </state>
     <state x="278" y="34" width="800" height="677" key="#Project_Structure/0.27.1366.694@0.27.1366.694" timestamp="1585036544026" />
+    <state x="141" y="31" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585235917846">
+      <screen x="0" y="27" width="1366" height="694" />
+    </state>
+    <state x="141" y="31" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.694@0.27.1366.694" timestamp="1585235917846" />
     <state x="457" y="92" width="442" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1585213674388">
       <screen x="0" y="27" width="1366" height="694" />
     </state>
@@ -146,30 +157,30 @@
       <screen x="0" y="27" width="1366" height="694" />
     </state>
     <state x="466" y="131" width="424" height="484" key="FileChooserDialogImpl/0.27.1366.694@0.27.1366.694" timestamp="1585209679108" />
-    <state width="1320" height="160" key="GridCell.Tab.0.bottom" timestamp="1585231030981">
+    <state width="1320" height="160" key="GridCell.Tab.0.bottom" timestamp="1585310644632">
       <screen x="0" y="27" width="1366" height="694" />
     </state>
-    <state width="1320" height="160" key="GridCell.Tab.0.bottom/0.27.1366.694@0.27.1366.694" timestamp="1585231030981" />
-    <state width="1320" height="160" key="GridCell.Tab.0.center" timestamp="1585231030978">
+    <state width="1320" height="160" key="GridCell.Tab.0.bottom/0.27.1366.694@0.27.1366.694" timestamp="1585310644632" />
+    <state width="1320" height="160" key="GridCell.Tab.0.center" timestamp="1585310644629">
       <screen x="0" y="27" width="1366" height="694" />
     </state>
-    <state width="1320" height="160" key="GridCell.Tab.0.center/0.27.1366.694@0.27.1366.694" timestamp="1585231030978" />
-    <state width="1320" height="160" key="GridCell.Tab.0.left" timestamp="1585231030976">
+    <state width="1320" height="160" key="GridCell.Tab.0.center/0.27.1366.694@0.27.1366.694" timestamp="1585310644629" />
+    <state width="1320" height="160" key="GridCell.Tab.0.left" timestamp="1585310644628">
       <screen x="0" y="27" width="1366" height="694" />
     </state>
-    <state width="1320" height="160" key="GridCell.Tab.0.left/0.27.1366.694@0.27.1366.694" timestamp="1585231030976" />
-    <state width="1320" height="160" key="GridCell.Tab.0.right" timestamp="1585231030980">
+    <state width="1320" height="160" key="GridCell.Tab.0.left/0.27.1366.694@0.27.1366.694" timestamp="1585310644628" />
+    <state width="1320" height="160" key="GridCell.Tab.0.right" timestamp="1585310644631">
       <screen x="0" y="27" width="1366" height="694" />
     </state>
-    <state width="1320" height="160" key="GridCell.Tab.0.right/0.27.1366.694@0.27.1366.694" timestamp="1585231030980" />
+    <state width="1320" height="160" key="GridCell.Tab.0.right/0.27.1366.694@0.27.1366.694" timestamp="1585310644631" />
     <state x="172" y="27" width="1012" height="694" key="SettingsEditor" timestamp="1585215435089">
       <screen x="0" y="27" width="1366" height="694" />
     </state>
     <state x="172" y="27" width="1012" height="694" key="SettingsEditor/0.27.1366.694@0.27.1366.694" timestamp="1585215435089" />
-    <state x="339" y="200" key="com.intellij.ide.util.TipDialog" timestamp="1585034101193">
+    <state x="339" y="200" key="com.intellij.ide.util.TipDialog" timestamp="1585310555524">
       <screen x="0" y="27" width="1366" height="694" />
     </state>
-    <state x="339" y="200" key="com.intellij.ide.util.TipDialog/0.27.1366.694@0.27.1366.694" timestamp="1585034101193" />
+    <state x="339" y="200" key="com.intellij.ide.util.TipDialog/0.27.1366.694@0.27.1366.694" timestamp="1585310555524" />
     <state x="427" y="27" width="501" height="694" key="refactoring.ChangeSignatureDialog" timestamp="1585211088172">
       <screen x="0" y="27" width="1366" height="694" />
     </state>
@@ -178,10 +189,10 @@
       <screen x="0" y="27" width="1366" height="694" />
     </state>
     <state x="347" y="163" key="run.anything.popup/0.27.1366.694@0.27.1366.694" timestamp="1585214939842" />
-    <state x="346" y="42" width="672" height="678" key="search.everywhere.popup" timestamp="1585228368914">
+    <state x="346" y="42" width="672" height="678" key="search.everywhere.popup" timestamp="1585290260192">
       <screen x="0" y="27" width="1366" height="694" />
     </state>
-    <state x="346" y="42" width="672" height="678" key="search.everywhere.popup/0.27.1366.694@0.27.1366.694" timestamp="1585228368914" />
+    <state x="346" y="42" width="672" height="678" key="search.everywhere.popup/0.27.1366.694@0.27.1366.694" timestamp="1585290260192" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

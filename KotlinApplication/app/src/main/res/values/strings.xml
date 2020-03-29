@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KotlinApplication</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="user_name">User Name</string>
+    <string name="email">Email</string>
+    <string name="main_activity">Main Activity</string>
+    <string name="signup">Signup</string>
+    <string name="signup_btn">SignUp</string>
+</resources>

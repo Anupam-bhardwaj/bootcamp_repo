@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
     println("Array List Before replacement")
     println(list)
 
-    list.add(1,21)
+    list.set(1, 21)
     println("Array List After replacement")
     println(list)
 

@@ -1,5 +1,7 @@
 package Exercise3
 
+//WAP to create extension function.
+
 class Question4 (val radius: Float){
 
     fun area(): Double {
@@ -12,7 +14,7 @@ fun main(args: Array<String>) {
         return 2*3.14*radius
     }
 
-    var question4 = Question4(5.0F)
+    val question4 = Question4(5.0F)
     println("Area of circle with radius = 5 is ${question4.area()}")
 
     println("Perimeter of circle with radius = 5 is ${question4.perimeter()}")
