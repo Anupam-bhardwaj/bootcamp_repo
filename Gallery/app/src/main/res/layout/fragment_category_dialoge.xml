@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@color/white"
+    tools:context=".CategoryDialogeFragment">
+
+        <TextView
+            android:id="@+id/dialogtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="Enter Category Name"
+            android:textColor="@color/primary"/>
+
+        <EditText
+            android:id="@+id/categoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="10dp"
+            android:background="@drawable/loginemailfield"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/dialogtitle"
+            android:hint="Category Name"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addCatImageBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:text="Add Image"
+            android:fontFamily="@font/lignt"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/transparent"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_below="@id/categoryName"
+            android:textColor="@color/primary"/>
+
+    <LinearLayout
+        android:id="@+id/btnContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/addCatImageBtn"
+        android:padding="5dp"
+        android:layout_alignParentRight="true">
+
+        <Button
+            android:id="@+id/cancelCategoryDialogBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="cancel"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/addCategoryDialogBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Add"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

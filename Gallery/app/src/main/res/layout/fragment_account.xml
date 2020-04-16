@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AccountFragment"
+    android:background="@color/white">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/profileToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Profile"
+        app:titleTextColor="@color/primary"
+        android:background="@color/white"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Title"/>
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/dataBtn"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="24dp"-->
+<!--            android:text="getuser"-->
+<!--            android:layout_below="@id/userEmail"-->
+<!--        />-->
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background"
+            android:layout_below="@id/profileToolbar"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="30sp"
+            android:fontFamily="@font/medium"
+            android:hint="User Name"
+            android:layout_centerHorizontal="true"
+            android:textColorHint="@color/hintAccentLight"
+            android:textColor="@color/accentLight"
+            android:layout_below="@id/profileImageView"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/medium"
+            android:hint="Email Address"
+            android:layout_centerHorizontal="true"
+            android:textColorHint="@color/hintAccentLight"
+            android:textColor="@color/accentLight"
+            android:layout_below="@id/userName" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Logout"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:fontFamily="@font/lignt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/loginbtnstyle"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>
+
+
+
+

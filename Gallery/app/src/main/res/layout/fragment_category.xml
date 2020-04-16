@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CategoryFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/appBarToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Categories"
+        android:background="@color/white"
+        app:titleTextColor="@color/primary"
+        style="@style/TextAppearance.AppCompat.Title"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainCategoryList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:background="@color/whiteLight"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_below="@id/appBarToolBar"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:src="@drawable/ic_add_circle_outline_black_24dp" />
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/dataBtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        style="@style/Widget.AppCompat.Button.Borderless"-->
+<!--        android:src="@drawable/ic_add_circle_outline_black_24dp" />-->
+
+
+</RelativeLayout>

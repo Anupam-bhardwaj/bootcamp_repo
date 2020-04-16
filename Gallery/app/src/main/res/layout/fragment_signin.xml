@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SigninFragment"
+    android:background="@drawable/background">
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/loginProgress"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="1"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="@string/welcome"
+        android:textSize="50dp"
+        android:fontFamily="@font/bold"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="28dp"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/loginemailfield"
+        android:layout_below="@id/welcomeText"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/username"
+        android:gravity="center"
+        android:textColorHint="@color/hintAccentLight"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/loginemailfield"
+        android:layout_below="@id/nameEditText"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/someone_gmail_com"
+        android:gravity="center"
+        android:textColorHint="@color/hintAccentLight"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/loginemailfield"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:gravity="center"
+        android:textColorHint="@color/hintAccentLight"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signinBtn"
+        android:layout_width="163dp"
+        android:layout_height="52dp"
+        android:background="@drawable/loginbtnstyle"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_below="@id/passwordEditText"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/registerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/already_a_member"
+        android:textColor="@color/accent"
+        android:textSize="16sp"
+        android:fontFamily="@font/lignt"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/registerText"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@+id/registerText"
+        android:fontFamily="@font/lignt"
+        android:text="Login."
+        android:textColor="@color/primary"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>
