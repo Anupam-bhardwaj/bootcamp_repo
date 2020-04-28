@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FullImageViewFragment">
+
+   <androidx.appcompat.widget.AppCompatImageView
+       android:id="@+id/fullImageView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       />
+
+
+    <Button
+        android:id="@+id/closeBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@drawable/ic_close_foreground"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

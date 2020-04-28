@@ -4,30 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".CategoryFragment"
-    android:background="@color/white">
+    android:orientation="vertical"
+    tools:context=".CategoryDetailFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/appBarToolBar"
+        android:id="@+id/categoryDetailToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="Categories"
+        app:title=""
         android:background="@color/white"
         app:titleTextColor="@color/primary"
         style="@style/TextAppearance.AppCompat.Display1"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mainCategoryList"
+        android:id="@+id/categoryDetailList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="5dp"
         android:background="@color/whiteLight"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        android:layout_below="@id/appBarToolBar"/>
+        android:layout_below="@id/categoryDetailToolbar"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addCategory"
+        android:id="@+id/addImageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

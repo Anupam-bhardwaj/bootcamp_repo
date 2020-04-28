@@ -1,16 +1,21 @@
 package com.example.anupam
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.*
-import androidx.appcompat.app.AlertDialog
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.anupam.ViewModel.FirebaseViewModel
+import com.example.anupam.model.CategoryModel
+import com.example.anupam.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
@@ -22,6 +27,11 @@ import de.hdodenhof.circleimageview.CircleImageView
  */
 class AccountFragment: Fragment() {
 
+    private lateinit var mViewModel: FirebaseViewModel
+
+    val settings = FirebaseFirestoreSettings.Builder()
+        .setPersistenceEnabled(true).build()
+
     var db: FirebaseFirestore = FirebaseFirestore.getInstance()
     var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     var currentUser: String = mAuth.currentUser?.uid.toString()
@@ -29,26 +39,23 @@ class AccountFragment: Fragment() {
     var dbRef = db.collection("Users").document("Categories").collection(currentUser).document("Category8")
     var strogeReference: StorageReference = FirebaseStorage.getInstance().reference
 
-    var userName: String? = null
-    var userEmail: String? = null
-
-    private var mainImageUri: Uri? = null
-    var downloadUri: Uri? = null
-    var imageId: String? = null
-    lateinit var  imageView: CircleImageView
-
-    lateinit var userModel: UserModel
+    private lateinit var  imageView: CircleImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+        mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
+
+        db.firestoreSettings = settings
+
         dbRef.get()
             .addOnSuccessListener { documents ->
                     val categoryModel = documents.toObject(CategoryModel::class.java)
                     Picasso.get().load(categoryModel?.catImage).into(imageView)
-                    Log.d("CatList", categoryModel?.catImage)}
+                    Log.d("CatList", categoryModel?.catImage)
+            }
 
 
         var view: View = inflater.inflate(R.layout.fragment_account, container, false)
@@ -64,27 +71,18 @@ class AccountFragment: Fragment() {
         documentReference.get().addOnSuccessListener { documentSnapshot ->
             if (documentSnapshot != null) {
                 var user = documentSnapshot.toObject(UserModel::class.java)!!
-                userName = user.name
-                userEmail = user.email
-                name.text = userName
-                email.text = userEmail
-//                setName(user?.name.toString())
-//                setEmail(user?.email.toString())
+                name.text = user.name
+                email.text = user.email
                 Log.d("TAG", user?.email + " & " + user?.name)
             }
         }
-
-
 
         imageView.setOnClickListener {
             selectImage()
         }
 
-
         logout.setOnClickListener {
-
-            mAuth.currentUser
-            mAuth.signOut()
+            mViewModel.logout()
             startActivity(Intent(activity, AuthActiivity::class.java))
         }
 
@@ -94,11 +92,5 @@ class AccountFragment: Fragment() {
     private fun selectImage() {
 
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        super.onCreateOptionsMenu(menu, inflater)
-//        inflater.inflate(R.menu.capture_image_menu, menu)
-//    }
-
 
 }

@@ -1,4 +1,4 @@
-package com.example.anupam
+package com.example.anupam.model
 
 import androidx.lifecycle.LiveData
 

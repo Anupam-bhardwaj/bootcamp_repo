@@ -8,65 +8,76 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.anupam.model.TimelineModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class TimelineFragment : Fragment() {
 
-    lateinit var mLayoutManager: LinearLayoutManager
-    lateinit var mAdapter: RecyclerView.Adapter<MyAdapter.ViewHolder>
+    private val settings = FirebaseFirestoreSettings.Builder()
+        .setPersistenceEnabled(true)
+        .build()
+
+    lateinit var timelineListener: ListenerRegistration
 
     var db: FirebaseFirestore = FirebaseFirestore.getInstance()
     var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     var currentUser: String = mAuth.currentUser?.uid.toString()
-    var dbRef =  db.collection("Categories").document(currentUser).collection("nature")
+    var dbRef =  db.collection("Users").document("Timeline").collection(currentUser)
+
+    val mTimelineDataset = ArrayList<TimelineModel>()
+    private lateinit var timelineAdapter: TimelineAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+        db.firestoreSettings = settings
+
         val view: View = inflater.inflate(R.layout.fragment_timeline, container, false)
-        val mTitle = arrayOf("Anupam", "Ashutosh", "Lakshya", "Subarno", "Akaansha", "Ankit", "Astha", "Bharat", "Naveen", "Priya", "Ujjwal")
-       // val mImage =
-        //adding data to a ArrayList.
-        var mDatasetSample = ArrayList<String>()
-
-        for (i in mTitle.indices) {
-            mDatasetSample.add(mTitle[i])
-        }
-//            dbRef.orderBy("timestamp", Query.Direction.DESCENDING).get()
-//                .addOnSuccessListener { documents ->
-//                    for (document in documents){
-//                        val categoryModel = document.toObject(CategoryModel::class.java)
-//                        mDatasetSample.add(categoryModel)
-//                        Log.d("DataSet", mDatasetSample.toString())
-//                        Log.d("CatList", categoryModel.imageUrl)}
-//                }
-
-
 
         val mRecyclerView: RecyclerView? = view?.findViewById(R.id.recyclerView)
 
-        mLayoutManager = LinearLayoutManager(activity)
-        if (mRecyclerView != null) {
-            mRecyclerView.layoutManager = mLayoutManager
-        }
+        val mLayoutManager = LinearLayoutManager(context)
+        mRecyclerView?.layoutManager = mLayoutManager
 
+        timelineAdapter = TimelineAdapter(mTimelineDataset)
 
+        loadData()
 
-        mAdapter = activity?.let { MyAdapter(mDatasetSample, it) }!!
-//        Log.d("DataSetSend", mDatasetSample.toString())
-//        mAdapter = MyAdapter(mDatasetSample, this)
-        if (mRecyclerView != null) {
-            mRecyclerView.adapter = mAdapter
+        mRecyclerView?.adapter = timelineAdapter
+
+        if (mTimelineDataset.isNotEmpty()){
+            timelineListener.remove()
         }
 
         return view
+    }
+
+    private fun loadData() {
+        timelineListener = dbRef.orderBy("timestamp", Query.Direction.DESCENDING).addSnapshotListener { snapshot, e ->
+            if (e != null) {
+                Log.w("TAG", "listen:error", e)
+                return@addSnapshotListener
+            }
+            for (dc in snapshot!!.documentChanges) {
+                val timelineModel = dc.document.toObject(TimelineModel::class.java)
+
+                when (dc.type) {
+                    DocumentChange.Type.ADDED -> {
+                        timelineAdapter.setCategoryData(timelineModel)
+                        Log.d("AccountFragment", "Added image: ${timelineModel.imageUrl}") }
+                    //                DocumentChange.Type.MODIFIED -> {mAdapter.setCategoryData(categoryModel)
+                    //                    Log.d("AccountFragment", "Modified image: ${categoryModel.catImage}")}
+                    DocumentChange.Type.REMOVED -> {timelineAdapter.removeData(timelineModel)
+                        Log.d("AccountFragment", "Removed image: $timelineModel")}
+                }
+            }
+        }
     }
 
 }

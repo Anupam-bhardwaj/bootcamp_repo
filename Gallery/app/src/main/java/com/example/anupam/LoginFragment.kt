@@ -14,27 +14,29 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.anupam.ViewModel.FirebaseViewModel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 import java.util.logging.Logger
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class LoginFragment : Fragment() {
 
-    lateinit var mAuth: FirebaseAuth
+    private lateinit var mViewModel: FirebaseViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        mAuth = FirebaseAuth.getInstance()
         val view: View = inflater.inflate(R.layout.fragment_login, container, false)
-        // Inflate the layout for this fragment
+
+        mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
+
         val loginProgress: ProgressBar = view.findViewById(R.id.loginProgress)
         var emailTextView: AppCompatEditText = view.findViewById(R.id.emailEditText)
         var passwordTextView: AppCompatEditText = view.findViewById(R.id.passwordEditText)
@@ -47,42 +49,54 @@ class LoginFragment : Fragment() {
             var email: String = emailTextView.text.toString()
             var password: String = passwordTextView.text.toString()
 
-            Log.d("TAG", email + " & " +password)
-            login(email, password)
+            if (email.isNotEmpty() &&  password.isNotEmpty()) {
 
+                mViewModel.login(email, password).addOnCompleteListener {
+                if (it.isSuccessful){
+                    loginProgress.alpha = 0F
+                    startActivity(Intent(activity, MainActivity::class.java))
+                    }else{
+                        loginProgress.alpha = 0F
+                        Toast.makeText(activity, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
+                        Log.d("TAG", it.exception?.message.toString())
+                    }
+                }
+            }else{
+                loginProgress.alpha = 0F
+                Toast.makeText(activity, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
+
+            }
         }
 
         regBtn.setOnClickListener {
-
-            var fragmentManager: FragmentManager? = fragmentManager
-            val transaction: FragmentTransaction? = fragmentManager?.beginTransaction()
-            val signinFragment = SigninFragment()
-            transaction?.replace(R.id.authContainer, signinFragment)
-            transaction?.commit()
-
+            moveToSigin()
         }
 
         return view
     }
 
-    private fun login(email: String, password: String) {
+//    private fun isValidCredentials(email: String, password: String): Boolean {
+//        val emailPattern: String = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+//
+//        return if (email.isEmpty() || password.length < 8 ){
+//            Toast.makeText(activity, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
+//            false
+//        }else{
+//            if (email.trim().toRegex().matches(emailPattern) && password.length > 8){
+//                true
+//            } else{
+//                Toast.makeText(activity, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
+//                false
+//            }
+//        }
+//    }
 
-        activity?.let {
-            mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(it) { task ->
-                    if (task.isSuccessful) {
-                        loginProgress.alpha = 0F
-                        startActivity(Intent(activity, MainActivity::class.java))
-
-                    } else {
-                        loginProgress.alpha = 0F
-                        Toast.makeText(activity, task.exception?.message.toString(), Toast.LENGTH_SHORT).show()
-                        Log.d("TAG", task.exception?.message.toString())
-
-                    }
-                }
-        }
-
+    private fun moveToSigin() {
+        val fragmentManager: FragmentManager? = fragmentManager
+        val transaction: FragmentTransaction? = fragmentManager?.beginTransaction()
+        val signinFragment = SigninFragment()
+        transaction?.replace(R.id.authContainer, signinFragment)
+        transaction?.commit()
     }
 
 }

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="50dp"
+    android:background="@android:color/transparent"
+    tools:context=".AddImageDialogeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/addImageDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="@string/add_image"
+        android:textColor="@color/primary"
+        style="@style/TextAppearance.AppCompat.Title"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/takePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="10dp"
+        android:padding="8dp"
+        android:text="Take Photo"
+        android:fontFamily="@font/regular"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:textColor="@color/white"
+        android:background="@drawable/loginbtnstyle"
+        android:layout_below="@id/addImageDialogTitle" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/selectImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        android:padding="8dp"
+        android:text="Select from Gallery"
+        android:fontFamily="@font/regular"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:background="@drawable/loginbtnstyle"
+        android:layout_below="@id/takePhoto" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/displayImage"-->
+<!--        android:layout_width="403dp"-->
+<!--        android:layout_height="392dp"-->
+<!--        android:layout_below="@id/selectImage"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_margin="8dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        android:scaleType="fitXY" />-->
+
+    <LinearLayout
+        android:id="@+id/btnContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/selectImage"
+        android:padding="5dp"
+        android:layout_alignParentRight="true">
+
+
+        <Button
+            android:id="@+id/cancelDialogBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="cancel"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/addDialogBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Add"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

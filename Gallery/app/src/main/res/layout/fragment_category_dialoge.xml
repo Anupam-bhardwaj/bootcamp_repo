@@ -12,16 +12,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:gravity="center"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:text="Enter Category Name"
+            android:fontFamily="@font/bold"
             android:textColor="@color/primary"/>
 
         <EditText
             android:id="@+id/categoryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:padding="10dp"
             android:background="@drawable/loginemailfield"
             android:gravity="center"
@@ -34,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="16dp"
             android:text="Add Image"
             android:fontFamily="@font/lignt"
             android:textAllCaps="false"
