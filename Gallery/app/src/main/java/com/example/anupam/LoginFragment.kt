@@ -69,22 +69,6 @@ class LoginFragment : Fragment() {
         return view
     }
 
-//    private fun isValidCredentials(email: String, password: String): Boolean {
-//        val emailPattern: String = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
-//
-//        return if (email.isEmpty() || password.length < 8 ){
-//            Toast.makeText(activity, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
-//            false
-//        }else{
-//            if (email.trim().toRegex().matches(emailPattern) && password.length > 8){
-//                true
-//            } else{
-//                Toast.makeText(activity, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
-//                false
-//            }
-//        }
-//    }
-
     private fun moveToSigin() {
         val fragmentManager: FragmentManager? = fragmentManager
         val transaction: FragmentTransaction? = fragmentManager?.beginTransaction()
