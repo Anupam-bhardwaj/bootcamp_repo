@@ -2,7 +2,6 @@ package com.example.anupam
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +11,9 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.example.anupam.ViewModel.FirebaseViewModel
-import com.example.anupam.model.CategoryModel
+import com.example.anupam.viewModel.FirebaseViewModel
 import com.example.anupam.model.ImageModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 
 
@@ -59,7 +56,7 @@ class CategoryDetailAdapter(private val mContext: Context, categoryDetailFragmen
         holder.imageView.setOnClickListener {
             getFullScreen(mCategoryImageDataSet[position].imageUrl, mCategoryImageDataSet[position].documentId, it)
         }
-//        Do Delete operation
+
         holder.menuBtn.setOnClickListener {
             val popupMenu: PopupMenu = PopupMenu(it.context, holder.menuBtn)
             popupMenu.inflate(R.menu.popup_menu)
@@ -71,14 +68,6 @@ class CategoryDetailAdapter(private val mContext: Context, categoryDetailFragmen
                     mViewModel = ViewModelProvider(categoryDetailFragment).get(FirebaseViewModel::class.java)
                     mViewModel.deleteImage(mDocumentId)
                     Toast.makeText(it.context, "Image Deleted!", Toast.LENGTH_SHORT).show()
-//                    FirebaseFirestore.getInstance().collection("Users").document("Timeline").collection(currentUser)
-//                        .document(mCategoryImageDataSet[position].documentId.toString()).delete().addOnCompleteListener {
-//                            this.position = position
-//                            Log.d("PopupMenu", this.position.toString())
-//                            modiftyDataSet(position)
-//                        }.addOnFailureListener {
-//                            Log.d("Full Image Error", it.message.toString())
-//                        }
                 }
                     else -> Toast.makeText(it.context, "Something Went Wrong.", Toast.LENGTH_SHORT).show()
                 }

@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.anupam.ViewModel.FirebaseViewModel
+import com.example.anupam.viewModel.FirebaseViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CategoryFragment : Fragment() {
@@ -37,7 +37,6 @@ class CategoryFragment : Fragment() {
             }
         })
 
-        recylerView.adapter = mAdapter
 
         var addCat: FloatingActionButton = view.findViewById(R.id.addCategory)
 

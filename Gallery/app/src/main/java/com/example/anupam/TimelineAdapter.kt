@@ -1,5 +1,6 @@
 package com.example.anupam
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.anupam.model.TimelineModel
 import com.squareup.picasso.Picasso
 
-class TimelineAdapter(var imageUrl: ArrayList<TimelineModel>) : RecyclerView.Adapter<TimelineAdapter.ViewHolder>() {
+class TimelineAdapter(private val mContext: Context, timelineFragment: TimelineFragment) : RecyclerView.Adapter<TimelineAdapter.ViewHolder>() {
+
+   private lateinit var mTimelineDataSet: List<TimelineModel>
+    private var timelineFragment: TimelineFragment
+
+    init {
+        this.timelineFragment = timelineFragment
+    }
+
+    fun setTimelineImages(timeline: List<TimelineModel>){
+        mTimelineDataSet = timeline
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -16,23 +29,23 @@ class TimelineAdapter(var imageUrl: ArrayList<TimelineModel>) : RecyclerView.Ada
     }
 
     override fun getItemCount(): Int {
-        return imageUrl.size
+        return mTimelineDataSet.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Picasso.get().load(imageUrl[position].imageUrl).placeholder(R.color.placeholderBackgroung).into(holder.imageView)
+        Picasso.get().load(mTimelineDataSet[position].imageUrl).placeholder(R.color.placeholderBackgroung).into(holder.imageView)
 
     }
 
-    fun setCategoryData(timelineModel: TimelineModel) {
-        imageUrl.add(timelineModel)
-        notifyDataSetChanged()
-
-    }
-
-    fun removeData(timelineModel: TimelineModel) {
-        imageUrl.remove(timelineModel)
-    }
+//    fun setCategoryData(timelineModel: TimelineModel) {
+//        imageUrl.add(timelineModel)
+//        notifyDataSetChanged()
+//
+//    }
+//
+//    fun removeData(timelineModel: TimelineModel) {
+//        imageUrl.remove(timelineModel)
+//    }
 
     class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         val imageView: AppCompatImageView = view.findViewById(R.id.timelineImage)

@@ -7,7 +7,7 @@
     tools:context=".AccountFragment"
     android:background="@color/white">
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/profileToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,14 +15,6 @@
         app:titleTextColor="@color/primary"
         android:background="@color/white"
         app:titleTextAppearance="@style/TextAppearance.AppCompat.Title"/>
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/dataBtn"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="24dp"-->
-<!--            android:text="getuser"-->
-<!--            android:layout_below="@id/userEmail"-->
-<!--        />-->
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profileImageView"
@@ -42,6 +34,7 @@
             android:textSize="30sp"
             android:fontFamily="@font/medium"
             android:hint="User Name"
+            android:gravity="center"
             android:layout_centerHorizontal="true"
             android:textColorHint="@color/hintAccentLight"
             android:textColor="@color/accentLight"

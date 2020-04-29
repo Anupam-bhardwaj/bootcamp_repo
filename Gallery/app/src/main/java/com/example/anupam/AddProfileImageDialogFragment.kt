@@ -1,6 +1,6 @@
 package com.example.anupam
 
-import android.app.Activity.RESULT_OK
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -17,11 +17,13 @@ import com.example.anupam.viewModel.FirebaseViewModel
 import java.io.ByteArrayOutputStream
 
 
-class AddImageDialogeFragment : DialogFragment() {
+class AddProfileImageDialogFragment : DialogFragment() {
 
     private lateinit var mViewModel: FirebaseViewModel
 
-    private var imageUri: Uri? = null
+
+    private var profileImageUri: Uri? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,22 +32,20 @@ class AddImageDialogeFragment : DialogFragment() {
 
         mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
 
-        val positionBundel: Bundle? = arguments
-        var categoryName: String = positionBundel?.get("categoryName") as String
-        val rootView: View = inflater.inflate(R.layout.fragment_add_image_dialoge, container, false)
+        val view = inflater.inflate(R.layout.fragment_add_profile_image_dialog, container, false)
 
-        val takePhotoBtn: AppCompatButton = rootView.findViewById(R.id.takePhoto)
-        val selectPhotoBtn: AppCompatButton = rootView.findViewById(R.id.selectImage)
+        val takePhotoBtn: AppCompatButton = view.findViewById(R.id.takePhoto)
+        val selectPhotoBtn: AppCompatButton = view.findViewById(R.id.selectImage)
 
-        val addBtn: AppCompatButton = rootView.findViewById(R.id.addDialogBtn)
-        val cancelBtn: AppCompatButton = rootView.findViewById(R.id.cancelDialogBtn)
+        val addBtn: AppCompatButton = view.findViewById(R.id.addDialogBtn)
+        val cancelBtn: AppCompatButton = view.findViewById(R.id.cancelDialogBtn)
 
         cancelBtn.setOnClickListener {
             dialog?.dismiss()
         }
 
         takePhotoBtn.setOnClickListener {
-            val intent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent, 1)
             takePhotoBtn.isEnabled = false
             selectPhotoBtn.isEnabled = false
@@ -59,27 +59,26 @@ class AddImageDialogeFragment : DialogFragment() {
             takePhotoBtn.isEnabled = false
         }
 
+
         addBtn.setOnClickListener {
-            var imageName = "${getRandomString(10)}+.jpg"
-            imageUri?.let { it1 -> mViewModel.addNewImage(categoryName, it1, imageName) }
+            profileImageUri?.let { it1 -> mViewModel.addProfileImage(it1) }
         }
 
-        return rootView
+
+        return view
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK){
+        if (resultCode == Activity.RESULT_OK){
             when(requestCode){
                 1 -> {
-                        //code Working
-//                        var photo: Bitmap = data?.extras?.get("data") as Bitmap
                     var photo: Bitmap = data?.extras?.get("data") as Bitmap
-                    imageUri = getImageUri(context, photo)
+                    profileImageUri = getImageUri(context, photo)
 
                 }
                 2 -> {
-                    imageUri = data?.data!!
+                    profileImageUri = data?.data!!
                 }
             }
         }
@@ -111,4 +110,5 @@ class AddImageDialogeFragment : DialogFragment() {
             dialog.window?.setLayout(width,height)
         }
     }
+
 }

@@ -14,16 +14,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import com.example.anupam.ViewModel.FirebaseViewModel
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
-import kotlinx.android.synthetic.main.fragment_login.*
+import com.example.anupam.viewModel.FirebaseViewModel
 
 
 class SigninFragment : Fragment() {
 
     private lateinit var mViewModel: FirebaseViewModel
+
+//    lateinit var profileImage: CircleImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +35,8 @@ class SigninFragment : Fragment() {
 
         val loginProgress: ProgressBar = view.findViewById(R.id.loginProgress)
 
+//        profileImage = view.findViewById(R.id.profileImage)
+
         var nameTextView: AppCompatEditText = view.findViewById(R.id.nameEditText)
         var emailTextView: AppCompatEditText = view.findViewById(R.id.emailEditText)
         var passwordTextView: AppCompatEditText = view.findViewById(R.id.passwordEditText)
@@ -45,6 +45,15 @@ class SigninFragment : Fragment() {
         var loginBtn: AppCompatTextView = view.findViewById(R.id.loginBtn)
 
         loginProgress.alpha = 0F
+
+//        profileImage.setOnClickListener {
+//            val addProfileImageDialogFragment: AddProfileImageDialogFragment = AddProfileImageDialogFragment()
+//            fragmentManager.let { it ->
+//                if (it != null) {
+//                    addProfileImageDialogFragment.show(it, "AddProfileImageFragment")
+//                }
+//            }
+//        }
 
         signinBtn.setOnClickListener {
             loginProgress.alpha = 1F

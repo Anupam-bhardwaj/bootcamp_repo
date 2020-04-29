@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        val fragmentTransaction = supportFragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.mainContainer, TimelineFragment(),
+        val fragmentTransaction = supportFragmentManager.beginTransaction().replace(R.id.mainContainer, TimelineFragment(),
             selecterdFragment.toString()
         ).commit()
 

@@ -10,4 +10,5 @@
     <string name="already_a_member">Already a member?</string>
     <string name="username">Username</string>
     <string name="add_image">Add Image!</string>
+    <string name="add_profile_image">Add Profile Image</string>
 </resources>

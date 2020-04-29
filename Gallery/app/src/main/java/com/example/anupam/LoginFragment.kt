@@ -14,14 +14,8 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.anupam.ViewModel.FirebaseViewModel
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_login.*
-import java.util.logging.Logger
+import com.example.anupam.viewModel.FirebaseViewModel
 
 
 class LoginFragment : Fragment() {
@@ -96,6 +90,7 @@ class LoginFragment : Fragment() {
         val transaction: FragmentTransaction? = fragmentManager?.beginTransaction()
         val signinFragment = SigninFragment()
         transaction?.replace(R.id.authContainer, signinFragment)
+        transaction?.addToBackStack("signinFragment")
         transaction?.commit()
     }
 

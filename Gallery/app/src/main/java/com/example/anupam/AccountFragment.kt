@@ -10,36 +10,24 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.anupam.ViewModel.FirebaseViewModel
-import com.example.anupam.model.CategoryModel
+import com.example.anupam.viewModel.FirebaseViewModel
 import com.example.anupam.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
-
-/**
- * A simple [Fragment] subclass.
- */
 class AccountFragment: Fragment() {
 
     private lateinit var mViewModel: FirebaseViewModel
-
-    val settings = FirebaseFirestoreSettings.Builder()
-        .setPersistenceEnabled(true).build()
 
     var db: FirebaseFirestore = FirebaseFirestore.getInstance()
     var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     var currentUser: String = mAuth.currentUser?.uid.toString()
 //    var dbRef =  db.collection("Categories").document(currentUser).collection("nature")
     var dbRef = db.collection("Users").document("Categories").collection(currentUser).document("Category8")
-    var strogeReference: StorageReference = FirebaseStorage.getInstance().reference
 
-    private lateinit var  imageView: CircleImageView
+    private lateinit var  profileImageView: CircleImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,40 +36,34 @@ class AccountFragment: Fragment() {
 
         mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
 
-        db.firestoreSettings = settings
-
-        dbRef.get()
-            .addOnSuccessListener { documents ->
-                    val categoryModel = documents.toObject(CategoryModel::class.java)
-                    Picasso.get().load(categoryModel?.catImage).into(imageView)
-                    Log.d("CatList", categoryModel?.catImage)
-            }
-
+//        dbRef.get()
+//            .addOnSuccessListener { documents ->
+//                    val categoryModel = documents.toObject(CategoryModel::class.java)
+//                    Picasso.get().load(categoryModel?.catImage).into(profileImageView)
+//                    Log.d("CatList", categoryModel?.catImage)
+//            }
 
         var view: View = inflater.inflate(R.layout.fragment_account, container, false)
 
-//        val btn: AppCompatButton = view.findViewById(R.id.dataBtn)
-        imageView = view.findViewById(R.id.profileImageView)
-        val name: AppCompatTextView = view.findViewById(R.id.userName)
-        val email: AppCompatTextView = view.findViewById(R.id.userEmail)
-        val logout: AppCompatButton = view.findViewById(R.id.logoutBtn)
+        profileImageView = view.findViewById(R.id.profileImageView)
+        val mName: AppCompatTextView = view.findViewById(R.id.userName)
+        val mEmail: AppCompatTextView = view.findViewById(R.id.userEmail)
+        val mLogout: AppCompatButton = view.findViewById(R.id.logoutBtn)
 
-        var currentUser: String = mAuth.currentUser?.uid.toString()
-        val documentReference = db.collection("Users").document(currentUser)
-        documentReference.get().addOnSuccessListener { documentSnapshot ->
-            if (documentSnapshot != null) {
-                var user = documentSnapshot.toObject(UserModel::class.java)!!
-                name.text = user.name
-                email.text = user.email
-                Log.d("TAG", user?.email + " & " + user?.name)
-            }
+        mViewModel.loadUserData().addOnSuccessListener {
+            var user = it.toObject(UserModel::class.java)
+            mName.text = user?.name
+            mEmail.text = user?.email
+            Log.d("ProfileImage", user?.profileImageUrl)
+            Picasso.get().load(user?.profileImageUrl).placeholder(R.color.placeholderBackgroung).into(profileImageView)
+
         }
 
-        imageView.setOnClickListener {
+        profileImageView.setOnClickListener {
             selectImage()
         }
 
-        logout.setOnClickListener {
+        mLogout.setOnClickListener {
             mViewModel.logout()
             startActivity(Intent(activity, AuthActiivity::class.java))
         }
@@ -90,7 +72,7 @@ class AccountFragment: Fragment() {
     }
 
     private fun selectImage() {
-
+        val addProfileImageDialogFragment: AddProfileImageDialogFragment = AddProfileImageDialogFragment()
+        fragmentManager?.let { it -> addProfileImageDialogFragment.show(it, "AddProfileImageFragment") }
     }
-
 }
