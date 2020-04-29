@@ -46,15 +46,6 @@ class SigninFragment : Fragment() {
 
         loginProgress.alpha = 0F
 
-//        profileImage.setOnClickListener {
-//            val addProfileImageDialogFragment: AddProfileImageDialogFragment = AddProfileImageDialogFragment()
-//            fragmentManager.let { it ->
-//                if (it != null) {
-//                    addProfileImageDialogFragment.show(it, "AddProfileImageFragment")
-//                }
-//            }
-//        }
-
         signinBtn.setOnClickListener {
             loginProgress.alpha = 1F
             var name: String = nameTextView.text.toString()
