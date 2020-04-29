@@ -37,16 +37,6 @@ class TimelineAdapter(private val mContext: Context, timelineFragment: TimelineF
 
     }
 
-//    fun setCategoryData(timelineModel: TimelineModel) {
-//        imageUrl.add(timelineModel)
-//        notifyDataSetChanged()
-//
-//    }
-//
-//    fun removeData(timelineModel: TimelineModel) {
-//        imageUrl.remove(timelineModel)
-//    }
-
     class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         val imageView: AppCompatImageView = view.findViewById(R.id.timelineImage)
     }
