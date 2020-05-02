@@ -29,8 +29,8 @@ class FirebaseViewModel(): ViewModel() {
         return repository.login(email, password)
     }
 
-    fun signin(email: String, password: String, name: String){
-        repository.sigin(email, password, name)
+    fun signin(email: String, password: String, name: String): Task<AuthResult>{
+        return repository.sigin(email, password, name)
     }
 
     fun loadCategory(): LiveData<List<CategoryModel>>{
