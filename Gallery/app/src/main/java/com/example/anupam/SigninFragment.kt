@@ -53,11 +53,12 @@ class SigninFragment : Fragment() {
             var password: String = passwordTextView.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty()){
-                mViewModel.signin(email, password, name)
-                loginProgress.alpha = 0F
-                startActivity(Intent(activity, MainActivity::class.java))
-                Toast.makeText(activity, "Signin Successfull!", Toast.LENGTH_SHORT).show()
-            }else{
+                mViewModel.signin(email, password, name).addOnSuccessListener {
+                    loginProgress.alpha = 0F
+                    startActivity(Intent(activity, MainActivity::class.java))
+                    Toast.makeText(activity, "Signin Successful!", Toast.LENGTH_SHORT).show()
+                }
+                else{
                 loginProgress.alpha = 0F
                 Toast.makeText(activity, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
 
