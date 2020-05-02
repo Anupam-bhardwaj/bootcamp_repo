@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".SigninFragment">
+    tools:context=".SigninFragment"
+     android:background="@drawable/background">
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/loginProgress"
@@ -20,23 +21,12 @@
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/accent"
+        android:textColor="@color/white"
         android:text="@string/welcome"
-        android:textSize="32dp"
+        android:textSize="50dp"
         android:fontFamily="@font/bold"
         android:layout_marginTop="32dp"
         android:layout_marginStart="28dp"/>
-
-<!--    <de.hdodenhof.circleimageview.CircleImageView-->
-<!--        android:id="@+id/profileImage"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="150dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:layout_below="@id/welcomeText"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        app:civ_border_width="1dp"-->
-<!--        app:civ_border_color="@color/black"-->
-<!--        android:src="@color/placeholderBackgroung"/>-->
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/nameEditText"
