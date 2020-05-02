@@ -51,11 +51,12 @@ class FirebaseModel {
         return auth
     }
 
-    fun signin(email: String, password: String, name: String){
-        mAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+    fun signin(email: String, password: String, name: String): Task<AuthResult>{
+        val auth = mAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
                 var currentUid: String = mAuth.currentUser?.uid.toString()
                 addUserToDatabase(name, email, currentUid)
         }
+        return auth
     }
 
     fun loadCategory(): CollectionReference{
