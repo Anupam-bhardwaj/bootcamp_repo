@@ -164,7 +164,7 @@ class FirebaseModel {
 
     private fun addProfileImageToFirebase(profileImageUrl: String) {
         val profileImageMap = hashMapOf<String, Any>(
-            "profileImage" to profileImageUrl
+            "profileImageUrl" to profileImageUrl
         )
         userReference.update(profileImageMap)
 
