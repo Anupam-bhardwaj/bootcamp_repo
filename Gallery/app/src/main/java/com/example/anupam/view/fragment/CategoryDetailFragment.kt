@@ -1,43 +1,34 @@
-package com.example.anupam
+package com.example.anupam.view.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.anupam.viewModel.FirebaseViewModel
+import com.example.anupam.R
+import com.example.anupam.adapter.CategoryDetailAdapter
+import com.example.anupam.viewModel.CategoryDetailViewModel
+import com.example.anupam.viewModel.MyViewModelFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
 
 class CategoryDetailFragment : Fragment() {
 
-    private lateinit var mViewModel: FirebaseViewModel
+    private val mViewModel by lazy {
+        ViewModelProvider(this, MyViewModelFactory()).get(CategoryDetailViewModel::class.java)
 
-    var db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-
-    private val settings = FirebaseFirestoreSettings.Builder()
-        .setPersistenceEnabled(true).build()
-
+    }
 
     lateinit var mAdapter: CategoryDetailAdapter
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
-
-        db.firestoreSettings = settings
 
         val positionBundel: Bundle? = arguments
         var categoryName: String = positionBundel?.get("categoryName") as String
@@ -50,7 +41,10 @@ class CategoryDetailFragment : Fragment() {
 
         val recyclerView: RecyclerView = view.findViewById(R.id.categoryDetailList)
 
-        mAdapter = CategoryDetailAdapter(this.context!!, this)
+        mAdapter = CategoryDetailAdapter(
+            this.context!!,
+            this
+        )
         mViewModel.loadCategoryDetail(categoryName).observe(viewLifecycleOwner, Observer { categoryImages ->
             categoryImages?.let {
                 mAdapter.setImageData(it)
@@ -72,7 +66,8 @@ class CategoryDetailFragment : Fragment() {
     private fun addImage(categoryName: String) {
         var categoryId: Bundle = Bundle()
         categoryId.putString("categoryName", categoryName)
-        val addImageDialogeFragment: AddImageDialogeFragment = AddImageDialogeFragment()
+        val addImageDialogeFragment: AddImageDialogeFragment =
+            AddImageDialogeFragment()
         addImageDialogeFragment.arguments = categoryId
         fragmentManager?.let { it-> addImageDialogeFragment.show(it, "AddImageDialog") }
     }

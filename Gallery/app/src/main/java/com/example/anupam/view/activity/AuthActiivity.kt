@@ -1,14 +1,11 @@
-package com.example.anupam
+package com.example.anupam.view.activity
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.example.anupam.view.fragment.LoginFragment
+import com.example.anupam.R
 
 class AuthActiivity : AppCompatActivity() {
 

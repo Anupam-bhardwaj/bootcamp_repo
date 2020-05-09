@@ -1,4 +1,4 @@
-package com.example.anupam
+package com.example.anupam.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.anupam.R
 import com.example.anupam.model.TimelineModel
+import com.example.anupam.view.fragment.TimelineFragment
 import com.squareup.picasso.Picasso
 
 class TimelineAdapter(private val mContext: Context, timelineFragment: TimelineFragment) : RecyclerView.Adapter<TimelineAdapter.ViewHolder>() {
@@ -25,7 +27,13 @@ class TimelineAdapter(private val mContext: Context, timelineFragment: TimelineF
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.timeline_item_view, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.timeline_item_view,
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {

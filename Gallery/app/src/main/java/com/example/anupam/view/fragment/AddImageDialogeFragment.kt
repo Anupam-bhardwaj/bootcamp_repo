@@ -1,4 +1,4 @@
-package com.example.anupam
+package com.example.anupam.view.fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Context
@@ -13,13 +13,18 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.anupam.viewModel.FirebaseViewModel
+import com.example.anupam.R
+import com.example.anupam.viewModel.AddimageViewModel
+import com.example.anupam.viewModel.MyViewModelFactory
 import java.io.ByteArrayOutputStream
 
 
 class AddImageDialogeFragment : DialogFragment() {
 
-    private lateinit var mViewModel: FirebaseViewModel
+    private val mViewModel by lazy {
+        ViewModelProvider(this, MyViewModelFactory()).get(AddimageViewModel::class.java)
+
+    }
 
     private var imageUri: Uri? = null
 
@@ -28,10 +33,11 @@ class AddImageDialogeFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
-
+        //get categoryName from categoryDetailFragment
         val positionBundel: Bundle? = arguments
         var categoryName: String = positionBundel?.get("categoryName") as String
+
+        //inflate the rootView
         val rootView: View = inflater.inflate(R.layout.fragment_add_image_dialoge, container, false)
 
         val takePhotoBtn: AppCompatButton = rootView.findViewById(R.id.takePhoto)
@@ -44,6 +50,7 @@ class AddImageDialogeFragment : DialogFragment() {
             dialog?.dismiss()
         }
 
+        //take photo from camera
         takePhotoBtn.setOnClickListener {
             val intent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent, 1)
@@ -51,6 +58,7 @@ class AddImageDialogeFragment : DialogFragment() {
             selectPhotoBtn.isEnabled = false
         }
 
+        //select photo from gallery
         selectPhotoBtn.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
@@ -58,6 +66,8 @@ class AddImageDialogeFragment : DialogFragment() {
             selectPhotoBtn.isEnabled = false
             takePhotoBtn.isEnabled = false
         }
+
+        //add the selected image to firebase
 
         addBtn.setOnClickListener {
             var imageName = "${getRandomString(10)}+.jpg"

@@ -1,4 +1,4 @@
-package com.example.anupam
+package com.example.anupam.view.fragment
 
 import android.content.Intent
 import android.net.Uri
@@ -13,45 +13,44 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.anupam.viewModel.FirebaseViewModel
+import com.example.anupam.view.activity.MainActivity
+import com.example.anupam.R
+import com.example.anupam.viewModel.AddCategoryViewModel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
-import com.google.firebase.storage.FirebaseStorage
 
-class CategoryDialogeFragment : DialogFragment() {
+class AddCategoryDialogeFragment : DialogFragment() {
 
-    private lateinit var mViewModel: FirebaseViewModel
+    //ViewModel Initialized as lazy
+    private val mViewModel by lazy {
+        ViewModelProvider(this).get(AddCategoryViewModel::class.java)
 
+    }
+
+    //Firebase variables declared
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-    private var storageReference = FirebaseStorage.getInstance().reference
     private var currentUser: String = mAuth.currentUser?.uid.toString()
-    private var catImageUri: Uri? = null
-    private var catImage: Uri? = null
-
-    var documentSize: Int? = 0
-    lateinit var imagePath: String
 
     var dbRef = FirebaseFirestore.getInstance().collection("Users").document("Categories").collection(currentUser)
 
+    var documentSize: Int? = 0
+    lateinit var imagePath: String
+    private var catImageUri: Uri? = null
+    private var catImage: Uri? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+        //get category count
         var categoryCounterTask: Task<QuerySnapshot> = dbRef.get().addOnSuccessListener {
             documentSize = it.size()
-            val catIdNumber = documentSize?.plus(1)
-            val categoryId: String = "Category$catIdNumber"
-
-            Log.d("DocumentSize", documentSize.toString())
-            Log.d("categoryId", categoryId)
         }
 
-        mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
-
+        //Layout Inflated
         var rootView: View = inflater.inflate(R.layout.fragment_category_dialoge, container, true)
 
         var catName: EditText = rootView.findViewById(R.id.categoryName)
@@ -60,6 +59,7 @@ class CategoryDialogeFragment : DialogFragment() {
         var cancelBtn: Button = rootView.findViewById(R.id.cancelCategoryDialogBtn)
 
 
+        //addImage Btn to select image for the category cover from gallery
         addImage.setOnClickListener {
 
             val intent = Intent(Intent.ACTION_PICK)
@@ -67,10 +67,12 @@ class CategoryDialogeFragment : DialogFragment() {
             startActivityForResult(intent, 1)
         }
 
+        //cancel dialog btn
         cancelBtn.setOnClickListener {
             dialog?.dismiss()
         }
 
+        //addBtn to add category to firebase
         addBtn.setOnClickListener {
 
             var categoryName:String = catName.text.toString()
@@ -80,8 +82,7 @@ class CategoryDialogeFragment : DialogFragment() {
                 Toast.makeText(MainActivity(), "Please select a category image", Toast.LENGTH_SHORT).show()
             }else{
                 dialog?.dismiss()
-                mViewModel.addCategory(catImageUri!!, categoryName, getCategoryId(categoryName))
-//                Toast.makeText(MainActivity(), "Category Added!", Toast.LENGTH_SHORT).show()
+                mViewModel.addCategory(catImageUri!!, categoryName, getCategoryId())
                 imagePath = catImage?.path.toString()
 
             }
@@ -90,10 +91,9 @@ class CategoryDialogeFragment : DialogFragment() {
         return rootView
     }
 
-    private fun getCategoryId(categoryName: String): String {
+    //method to get unique category reference for firebase
+    private fun getCategoryId(): String {
 
-        categoryName.toLowerCase()
-        Log.d("CategoryDialog", categoryName)
         documentSize = documentSize?.plus(1)
         var categoryId: String = "Category$documentSize"
         Log.d("CategoryId", categoryId)
@@ -101,11 +101,12 @@ class CategoryDialogeFragment : DialogFragment() {
         return categoryId
     }
 
+    //onActivityResult method override to get Image Uri for the selected category cover image
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         catImageUri = data?.data!!
         Log.d("ImagePicker", catImageUri.toString())
-        }
+    }
 
     override fun onStart() {
         super.onStart()

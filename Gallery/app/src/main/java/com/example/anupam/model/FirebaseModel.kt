@@ -3,7 +3,7 @@ package com.example.anupam.model
 import android.net.Uri
 import android.util.Log
 import android.widget.Toast
-import com.example.anupam.MainActivity
+import com.example.anupam.view.activity.MainActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -51,8 +51,12 @@ class FirebaseModel {
         return auth
     }
 
-    fun signin(email: String, password: String, name: String): Task<AuthResult>{
-        val auth = mAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+    fun signin(
+        email: String,
+        password: String,
+        name: String
+    ): Task<AuthResult>{
+         val  auth = mAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
                 var currentUid: String = mAuth.currentUser?.uid.toString()
                 addUserToDatabase(name, email, currentUid)
         }
@@ -164,7 +168,7 @@ class FirebaseModel {
 
     private fun addProfileImageToFirebase(profileImageUrl: String) {
         val profileImageMap = hashMapOf<String, Any>(
-            "profileImageUrl" to profileImageUrl
+            "profileImage" to profileImageUrl
         )
         userReference.update(profileImageMap)
 
@@ -186,6 +190,7 @@ class FirebaseModel {
         db.firestoreSettings = settings
         user = UserModel(name, email, "https://firebasestorage.googleapis.com/v0/b/galleryapp-a0f9e.appspot.com/o/CategoryImage%2FIzRRneuifuVoqwq1nZzD7A5kObc2%2Fphotography.jpg?alt=media&token=88f5be0e-5efb-4186-9607-85314d787bfb")
         db.collection("Users").document(currentUid).set(user)
+          
     }
 
     fun logout(){

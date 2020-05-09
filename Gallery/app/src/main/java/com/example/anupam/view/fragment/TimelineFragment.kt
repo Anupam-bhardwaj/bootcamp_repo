@@ -1,4 +1,4 @@
-package com.example.anupam
+package com.example.anupam.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +9,17 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.anupam.viewModel.FirebaseViewModel
+import com.example.anupam.R
+import com.example.anupam.adapter.TimelineAdapter
+import com.example.anupam.viewModel.MyViewModelFactory
+import com.example.anupam.viewModel.TimelineViewModel
 
 class TimelineFragment : Fragment() {
 
-    private lateinit var mViewModel: FirebaseViewModel
+    private val mViewModel by lazy {
+        ViewModelProvider(this, MyViewModelFactory()).get(TimelineViewModel::class.java)
+
+    }
 
     private lateinit var timelineAdapter: TimelineAdapter
 
@@ -25,8 +31,8 @@ class TimelineFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_timeline, container, false)
         val mRecyclerView: RecyclerView? = view.findViewById(R.id.recyclerView)
 
-        mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
-        timelineAdapter = TimelineAdapter(this.context!!, this)
+        timelineAdapter =
+            TimelineAdapter(this.context!!, this)
 
         mViewModel.loadTimeline().observe(viewLifecycleOwner, Observer { timelineImages ->
             timelineImages?.let {

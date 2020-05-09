@@ -1,4 +1,4 @@
-package com.example.anupam
+package com.example.anupam.view.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,38 +14,41 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import com.example.anupam.viewModel.FirebaseViewModel
+import com.example.anupam.R
+import com.example.anupam.view.activity.MainActivity
+import com.example.anupam.viewModel.MyViewModelFactory
+import com.example.anupam.viewModel.SigninViewModel
 
 
 class SigninFragment : Fragment() {
 
-    private lateinit var mViewModel: FirebaseViewModel
+    //ViewModel Initialized as lazy
+    private val mViewModel by lazy {
+       ViewModelProvider(this, MyViewModelFactory()).get(SigninViewModel::class.java)
 
-//    lateinit var profileImage: CircleImageView
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-
+        //View Inflated
         val view: View = inflater.inflate(R.layout.fragment_signin, container, false)
 
-        mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
-
+        //view components initialized
         val loginProgress: ProgressBar = view.findViewById(R.id.loginProgress)
 
-//        profileImage = view.findViewById(R.id.profileImage)
+        val nameTextView: AppCompatEditText = view.findViewById(R.id.nameEditText)
+        val emailTextView: AppCompatEditText = view.findViewById(R.id.emailEditText)
+        val passwordTextView: AppCompatEditText = view.findViewById(R.id.passwordEditText)
 
-        var nameTextView: AppCompatEditText = view.findViewById(R.id.nameEditText)
-        var emailTextView: AppCompatEditText = view.findViewById(R.id.emailEditText)
-        var passwordTextView: AppCompatEditText = view.findViewById(R.id.passwordEditText)
-
-        var signinBtn: AppCompatButton = view.findViewById(R.id.signinBtn)
-        var loginBtn: AppCompatTextView = view.findViewById(R.id.loginBtn)
+        val signinBtn: AppCompatButton = view.findViewById(R.id.signinBtn)
+        val loginBtn: AppCompatTextView = view.findViewById(R.id.loginBtn)
 
         loginProgress.alpha = 0F
 
+        //signinBtn clickListener
         signinBtn.setOnClickListener {
             loginProgress.alpha = 1F
             var name: String = nameTextView.text.toString()
@@ -58,13 +61,15 @@ class SigninFragment : Fragment() {
                     startActivity(Intent(activity, MainActivity::class.java))
                     Toast.makeText(activity, "Signin Successful!", Toast.LENGTH_SHORT).show()
                 }
-                else{
+
+            }else{
                 loginProgress.alpha = 0F
                 Toast.makeText(activity, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
 
             }
         }
 
+        //loginBtn clickListener
         loginBtn.setOnClickListener {
             moveToLogin()
         }
@@ -72,6 +77,7 @@ class SigninFragment : Fragment() {
         return view
     }
 
+    //function to move to login fragment
     private fun moveToLogin() {
         val fragmentManager: FragmentManager? = fragmentManager
         val transaction: FragmentTransaction? = fragmentManager?.beginTransaction()

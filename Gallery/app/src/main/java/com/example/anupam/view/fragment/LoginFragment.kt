@@ -1,4 +1,4 @@
-package com.example.anupam
+package com.example.anupam.view.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,36 +15,49 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import com.example.anupam.viewModel.FirebaseViewModel
+import com.example.anupam.view.activity.MainActivity
+import com.example.anupam.R
+import com.example.anupam.viewModel.LoginViewModel
+import com.example.anupam.viewModel.MyViewModelFactory
 
 
 class LoginFragment : Fragment() {
 
-    private lateinit var mViewModel: FirebaseViewModel
+    //ViewModel Initialized as lazy
+    private val mViewModel by lazy {
+        ViewModelProvider(this, MyViewModelFactory()).get(LoginViewModel::class.java)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+        //View Inflated
         val view: View = inflater.inflate(R.layout.fragment_login, container, false)
 
-        mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
-
+        //View Components Initialized
         val loginProgress: ProgressBar = view.findViewById(R.id.loginProgress)
+
         var emailTextView: AppCompatEditText = view.findViewById(R.id.emailEditText)
         var passwordTextView: AppCompatEditText = view.findViewById(R.id.passwordEditText)
+
         var loginBtn: AppCompatButton = view.findViewById(R.id.loginBtn)
         var regBtn: AppCompatTextView = view.findViewById(R.id.regBtn)
+
         loginProgress.alpha = 0F
 
+        //loginBtn clickListener
         loginBtn.setOnClickListener {
             loginProgress.alpha = 1F
             var email: String = emailTextView.text.toString()
             var password: String = passwordTextView.text.toString()
 
+            //Check email & password field is not empty
             if (email.isNotEmpty() &&  password.isNotEmpty()) {
 
+                //ViewModel function call
                 mViewModel.login(email, password).addOnCompleteListener {
                 if (it.isSuccessful){
                     loginProgress.alpha = 0F
@@ -62,6 +75,7 @@ class LoginFragment : Fragment() {
             }
         }
 
+        //registerBtn clickListener
         regBtn.setOnClickListener {
             moveToSigin()
         }
@@ -69,6 +83,7 @@ class LoginFragment : Fragment() {
         return view
     }
 
+    //function to move to signin fragment
     private fun moveToSigin() {
         val fragmentManager: FragmentManager? = fragmentManager
         val transaction: FragmentTransaction? = fragmentManager?.beginTransaction()

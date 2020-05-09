@@ -1,6 +1,7 @@
 package com.example.anupam.model
 
 import android.net.Uri
+import androidx.fragment.app.FragmentActivity
 
 class Repository {
 
@@ -8,7 +9,12 @@ class Repository {
 
     fun login(email: String, password: String) = firebaseModel.login(email, password)
 
-    fun sigin(email: String, password: String, name: String) = firebaseModel.signin(email, password, name)
+    fun sigin(
+        email: String,
+        password: String,
+        name: String
+
+    ) = firebaseModel.signin(email, password, name)
 
     fun loadCategory() = firebaseModel.loadCategory()
 

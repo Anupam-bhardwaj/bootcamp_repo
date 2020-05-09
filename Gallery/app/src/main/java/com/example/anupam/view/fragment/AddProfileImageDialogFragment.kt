@@ -1,4 +1,4 @@
-package com.example.anupam
+package com.example.anupam.view.fragment
 
 import android.app.Activity
 import android.content.Context
@@ -13,13 +13,18 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.anupam.viewModel.FirebaseViewModel
+import com.example.anupam.R
+import com.example.anupam.viewModel.AddprofileImageViewModel
+import com.example.anupam.viewModel.MyViewModelFactory
 import java.io.ByteArrayOutputStream
 
 
 class AddProfileImageDialogFragment : DialogFragment() {
 
-    private lateinit var mViewModel: FirebaseViewModel
+    private val mViewModel by lazy {
+       ViewModelProvider(this, MyViewModelFactory()).get(AddprofileImageViewModel::class.java)
+
+    }
 
 
     private var profileImageUri: Uri? = null
@@ -30,7 +35,6 @@ class AddProfileImageDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        mViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
 
         val view = inflater.inflate(R.layout.fragment_add_profile_image_dialog, container, false)
 
