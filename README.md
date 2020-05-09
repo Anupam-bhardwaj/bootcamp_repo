@@ -1,2 +1,5 @@
 # bootcamp_repo
-#Minor Project
+Minor Project: Gallery App
+Timeline Image
+![Timeline Image]()
+
