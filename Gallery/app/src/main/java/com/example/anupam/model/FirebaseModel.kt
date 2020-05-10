@@ -12,6 +12,7 @@ import com.google.firebase.storage.FirebaseStorage
 
 class FirebaseModel {
 
+    private var defaultProfileImagePlaceholder: String = "https://firebasestorage.googleapis.com/v0/b/galleryapp-a0f9e.appspot.com/o/profile_placeholder.jpg?alt=media&token=4f789073-cd62-46de-8ba5-b8c882fdde4d"
     private var categoryImage: Uri? = null
     private var profileImageUri: Uri? = null
     private var uploadImageUri: Uri? = null
@@ -168,7 +169,7 @@ class FirebaseModel {
 
     private fun addProfileImageToFirebase(profileImageUrl: String) {
         val profileImageMap = hashMapOf<String, Any>(
-            "profileImage" to profileImageUrl
+            "profileImageUrl" to profileImageUrl
         )
         userReference.update(profileImageMap)
 
@@ -188,7 +189,7 @@ class FirebaseModel {
 
     private fun addUserToDatabase(name: String, email: String, currentUid: String) {
         db.firestoreSettings = settings
-        user = UserModel(name, email, "https://firebasestorage.googleapis.com/v0/b/galleryapp-a0f9e.appspot.com/o/CategoryImage%2FIzRRneuifuVoqwq1nZzD7A5kObc2%2Fphotography.jpg?alt=media&token=88f5be0e-5efb-4186-9607-85314d787bfb")
+        user = UserModel(name, email, defaultProfileImagePlaceholder)
         db.collection("Users").document(currentUid).set(user)
           
     }

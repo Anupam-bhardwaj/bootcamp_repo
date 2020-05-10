@@ -52,7 +52,7 @@ class AccountFragment: Fragment() {
             var user = it.toObject(UserModel::class.java)
             mName.text = user?.name
             mEmail.text = user?.email
-            Log.d("ProfileImage", user?.profileImageUrl)
+
             Picasso.get().load(user?.profileImageUrl).placeholder(R.color.placeholderBackgroung).into(profileImageView)
 
         }

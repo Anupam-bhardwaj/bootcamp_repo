@@ -41,14 +41,14 @@ CategoryAdapter(private val mContext: Context, categoryFragment: CategoryFragmen
             )
         )
     }
-
+    
 
     override fun getItemCount(): Int {
         return mCategoryDataSet.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        
         //Load category image and name from fetched Url & category Id into ImageView and TextView respectively
         Picasso.get().load(mCategoryDataSet[position].catImage).placeholder(R.color.placeholderBackgroung).into(holder.categoryImage)
         holder.categoryName.text = mCategoryDataSet[position].catId

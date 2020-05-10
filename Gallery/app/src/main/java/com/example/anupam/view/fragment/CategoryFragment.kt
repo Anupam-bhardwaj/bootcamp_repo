@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.Visibility
 import com.example.anupam.R
 import com.example.anupam.adapter.CategoryAdapter
 import com.example.anupam.viewModel.CategoryViewModel
@@ -34,6 +36,8 @@ class CategoryFragment : Fragment() {
         //View Inflated
         val view: View = inflater.inflate(R.layout.fragment_category, container, false)
 
+        val placeholderText: TextView = view.findViewById(R.id.placeholderText)
+
         //recyclerView Initialized
         val recylerView: RecyclerView = view.findViewById(R.id.mainCategoryList)
 
@@ -45,6 +49,9 @@ class CategoryFragment : Fragment() {
         mViewModel.loadCategory().observe(viewLifecycleOwner, Observer { categories ->
             categories?.let {
 
+                if (it.isNotEmpty()){
+                    placeholderText.visibility = View.GONE
+                }
                 //fetched categories passed to the adapter through Adapter's setCategories method
                 mAdapter.setCategories(it)
 

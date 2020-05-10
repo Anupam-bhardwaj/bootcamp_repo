@@ -15,6 +15,17 @@
         style="@style/TextAppearance.AppCompat.Display1"
         app:title="Timeline" />
 
+    <TextView
+        android:id="@+id/placeholderText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/accent"
+        android:text="No data available"
+        android:layout_centerInParent="true" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
