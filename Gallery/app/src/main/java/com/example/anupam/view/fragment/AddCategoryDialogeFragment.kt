@@ -25,7 +25,7 @@ class AddCategoryDialogeFragment : DialogFragment() {
 
     //ViewModel Initialized as lazy
     private val mViewModel by lazy {
-        ViewModelProvider(this).get(AddCategoryViewModel::class.java)
+        ViewModelProvider(this, MyViewModelFactory()).get(AddCategoryViewModel::class.java)
 
     }
 
